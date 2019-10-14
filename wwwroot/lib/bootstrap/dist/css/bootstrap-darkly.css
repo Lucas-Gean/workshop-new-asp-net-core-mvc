@@ -4963,7 +4963,12 @@ input[type="button"].btn-block {
   width: 100%;
   border-radius: calc(0.25rem - 1px);
 }
-
+.bg-green {
+    background-color: #18BC9C !important;
+}
+.bg-grey{
+    background-color: #444 !important;
+}
 .card-img-top {
   width: 100%;
   border-top-left-radius: calc(0.25rem - 1px);

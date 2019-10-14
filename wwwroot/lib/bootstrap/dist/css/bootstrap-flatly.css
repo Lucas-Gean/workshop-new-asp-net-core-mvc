@@ -4707,6 +4707,10 @@ input[type="button"].btn-block {
   }
 }
 
+.bg-white {
+    background-color = #18BC9C;
+}
+
 .navbar-expand {
   -webkit-box-orient: horizontal;
   -webkit-box-direction: normal;
@@ -6984,7 +6988,10 @@ button.bg-dark:focus {
 }
 
 .bg-white {
-  background-color: #fff !important;
+    background-color: #ffff !important;
+}
+.bg-green {
+    background-color: #18BC9C !important;
 }
 
 .bg-transparent {
