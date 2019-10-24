@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.EntityFrameworkCore;
+using SalesWebMvc.Models.Enums;
 
 namespace SalesWebMvc.Services
 {
@@ -17,6 +18,8 @@ namespace SalesWebMvc.Services
 
         }
 
+
+
         public async Task<List<SalesRecord>> FindByDateAsync(DateTime? minDate, DateTime? maxDate)
         {
             var result = from obj in _context.SalesRecord select obj;
@@ -29,10 +32,18 @@ namespace SalesWebMvc.Services
                 result = result.Where(x => x.Date <= maxDate.Value);
             }
 
-            return  await result.Include(x => x.Seller)
+            return await result.Include(x => x.Seller)
                 .Include(x => x.Seller.Department)
                 .OrderByDescending(x => x.Date)
                 .ToListAsync();
+        }
+
+        public List<SalesRecord> FindAll()
+        {
+
+            var result = from obj in _context.SalesRecord select obj;
+
+            return result.Include(x => x.Seller).Include(x => x.Seller.Department).OrderByDescending(x => x.Date).ToList();
         }
         public async Task<List<IGrouping<Department, SalesRecord>>> FindByDateGroupingAsync(DateTime? minDate, DateTime? maxDate)
         {
@@ -52,5 +63,7 @@ namespace SalesWebMvc.Services
                 .GroupBy(x => x.Seller.Department)
                 .ToListAsync();
         }
+
     }
+       
 }

@@ -16,6 +16,7 @@ namespace SalesWebMvc.Controllers
         private readonly SellerService _sellerService;
         private readonly DepartmentService _departmentService;
 
+
         public SellersController(SellerService sellerService, DepartmentService departmentService)
         {
             _sellerService = sellerService;
@@ -149,5 +150,7 @@ namespace SalesWebMvc.Controllers
             };
             return View(viewModel);
         }
+
+
     }
 }
